@@ -11,8 +11,10 @@ export function ErrAlertProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
 
-  const openAlert = (error) => {
-    setMessage(error.message);
+  const openAlert = (error) => {   
+    const error_data = JSON.parse(error.message);
+    const error_message = "Error code: " + error_data['code'] + " Error message: " + error_data['message'];
+    setMessage(error_message);
     setIsOpen(true);
   };
 

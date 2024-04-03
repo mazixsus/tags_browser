@@ -15,9 +15,9 @@ export const MainPage = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        await dispatch(listTags()).unwrap();
+        await dispatch(listTags([1, 10, "desc", "popular"])).unwrap();
       } catch (error) {
-        // alert.openAlert(error);
+        alert.openAlert(error);
       }
     }
     fetchData();

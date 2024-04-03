@@ -7,17 +7,17 @@ import { listTags } from "../redux_utils/TagsSlice";
 export const SearchFilters = () => {
   const [page, setPage] = React.useState(1);
   const [elementOnPage, setElementOnPage] = React.useState(10);
-  const [sortBy, setSortBy] = React.useState("Counter");
-  const [order, setOrder] = React.useState("Desc");
+  const [sortBy, setSortBy] = React.useState("popular");
+  const [order, setOrder] = React.useState("desc");
 
   const dispatch = useDispatch();
 
   const hendleRefresh = () => {
-    dispatch(listTags(page, elementOnPage, order, sortBy));
+    dispatch(listTags([page, elementOnPage, order, sortBy]));
   };
 
   return (
-    <Box>
+    <Box p={3} sx={{backgroundColor: "#fff", borderRadius: 1}}>
       <Box display={"flex"} alignItems={"center"}>
         <Typography mr={1}>Page:</Typography>
         <OutlinedInput
@@ -45,15 +45,15 @@ export const SearchFilters = () => {
       <Box display={"flex"} alignItems={"center"} mt={1}>
         <Typography mr={1}>Sort by:</Typography>
         <Select type="text" size="small" placeholder="Counter" sx={{mr: 1}} value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-          <MenuItem value="Counter">Counter</MenuItem>
-          <MenuItem value="Name">Name</MenuItem>
+          <MenuItem value="popular">Counter</MenuItem>
+          <MenuItem value="name">Name</MenuItem>
         </Select>
       {/* </Box>
       <Box display={"flex"} alignItems={"center"} mt={1}> */}
         <Typography mr={1}>Order:</Typography>
         <Select type="text" size="small" placeholder="Desc" value={order} onChange={(e) => setOrder(e.target.value)}>
-          <MenuItem value="Desc">Desc</MenuItem>
-          <MenuItem value="Asc">Asc</MenuItem>
+          <MenuItem value="desc">Desc</MenuItem>
+          <MenuItem value="asc">Asc</MenuItem>
         </Select>
       </Box>
       <Box mt={2}>

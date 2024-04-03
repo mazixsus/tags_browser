@@ -12,10 +12,9 @@ apiAxios.interceptors.response.use(
   response => response,
   error => {
     if (error.response) {
-      console.log(error.response.data.error_message);
-      throw new Error(
-        error.response.data.error_message
-      );
+      throw new Error(JSON.stringify(
+        {message: error.message, data: error.response.data, code: error.response.status }
+      ));
     }
     throw error;
   }

@@ -1,9 +1,9 @@
 import { createAsyncThunk, createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 import apiAxios from "../utils/apiAxios";
 
-export const listTags = createAsyncThunk("tags/listTags", async (page, pagesize, order, sort) => {
+export const listTags = createAsyncThunk("tags/listTags", async ([page, page_size, order, sort]) => {
   return apiAxios
-    .get(`tags?page=${page}&pagesize=${pagesize}&order=${order}&sort=${sort}&site=stackoverflow`)
+    .get(`tags?page=${page ? page : 1}&pagesize=${page_size ? page_size : 10}&order=${order ? order : "desc"}&sort=${sort ? sort : "popular"}&site=stackoverflow`)
     .then((response) => response.data);
 });
 
