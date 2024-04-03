@@ -29,8 +29,6 @@ export const SearchFilters = () => {
           onChange={(e) => setPage(e.target.value)}
           inputProps={{ step: "1", min: "1" }}
         />
-      {/* </Box>
-      <Box display={"flex"} alignItems={"center"} mt={1}> */}
         <Typography mr={1}>Element on page:</Typography>
         <OutlinedInput
           size="small"
@@ -48,8 +46,6 @@ export const SearchFilters = () => {
           <MenuItem value="popular">Counter</MenuItem>
           <MenuItem value="name">Name</MenuItem>
         </Select>
-      {/* </Box>
-      <Box display={"flex"} alignItems={"center"} mt={1}> */}
         <Typography mr={1}>Order:</Typography>
         <Select type="text" size="small" placeholder="Desc" value={order} onChange={(e) => setOrder(e.target.value)}>
           <MenuItem value="desc">Desc</MenuItem>

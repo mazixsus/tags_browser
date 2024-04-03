@@ -7,13 +7,6 @@ export const listTags = createAsyncThunk("tags/listTags", async ([page, page_siz
     .then((response) => response.data);
 });
 
-// export const createTag = createAsyncThunk(
-//     "tag/createTag",
-//     async (data) => {
-//         return authAxios.post("tag/", data).then((response) => response.data);
-//     }
-// );
-
 export const TagsSlice = createSlice({
   name: "tags",
   initialState: {
