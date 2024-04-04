@@ -13,7 +13,8 @@ export function ErrAlertProvider({ children }) {
 
   const openAlert = (error) => {   
     const error_data = JSON.parse(error.message);
-    const error_message = "Error code: " + error_data['code'] + " Error message: " + error_data['message'];
+    console.log(error_data)
+    const error_message = "Error code: " + error_data['code'] + "\n Error message: " + error_data['message'] + "\n Error data: " + JSON.stringify(error_data['data']);
     setMessage(error_message);
     setIsOpen(true);
   };
@@ -36,7 +37,7 @@ export function ErrAlertProvider({ children }) {
         }}
         open={isOpen ? true : false}
       >
-        <Alert severity="error" sx={{ p:5 }}>
+        <Alert severity="error" sx={{ p:5, whiteSpace: 'pre-line' }}>
           {message}
         </Alert>
       </Backdrop>
